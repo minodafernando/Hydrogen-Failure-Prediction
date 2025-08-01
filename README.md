@@ -34,7 +34,7 @@ To train a **binary classifier** that identifies both **mild** and **severe** sy
 Combined plot of how fuel cell variables behave across time, with visible injected anomalies:
 
 <p align="center">
-  <img src="images/failure_signals.png" width="650">
+  <img src="images/failure_overtime.png" width="650">
 </p>
 
 ---
