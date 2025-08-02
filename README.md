@@ -1,4 +1,4 @@
-# Hydrogen Locomotive Fuel Cell Fault Prediction 🚂🔋
+# Hydrogen Locomotive Fuel Cell Fault Prediction
 
 This project builds a machine learning pipeline to detect system failures in a **hydrogen-powered locomotive** using simulated sensor data.
 
@@ -6,17 +6,17 @@ Built with `pandas`, `scikit-learn`, `matplotlib`, and `seaborn`, it demonstrate
 
 ---
 
-## 🔍 Objective
+## Objective
 
 To train a **binary classifier** that identifies both **mild** and **severe** system failures based on:
 
-- 🔽 Hydrogen Pressure  
-- 🌡️ Fuel Cell Temperature  
-- ⚙️ System Efficiency  
+- Hydrogen Pressure  
+- Fuel Cell Temperature  
+- System Efficiency  
 
 ---
 
-## 📦 Dataset & Failure Simulation
+## Dataset & Failure Simulation
 
 - Simulated ~1000 time steps of telemetry data.
 - Labeled a new column `failure_event` (1 = failure, 0 = normal).
@@ -29,7 +29,7 @@ To train a **binary classifier** that identifies both **mild** and **severe** sy
 
 ---
 
-## 🖼️ Simulated Failure Signals
+## Simulated Failure Signals
 
 Combined plot of how fuel cell variables behave across time, with visible injected anomalies:
 
@@ -39,7 +39,7 @@ Combined plot of how fuel cell variables behave across time, with visible inject
 
 ---
 
-## 🧠 Model Training
+## Model Training
 
 Trained a `RandomForestClassifier` with `class_weight='balanced'` to prioritize recall on rare failure events.
 
@@ -52,31 +52,39 @@ Used `train_test_split` with 20% test size and applied GridSearchCV to tune:
 
 ---
 
-## 📊 Results
+## Results
 
-### ✅ Confusion Matrix
+### Confusion Matrix
 
 <p align="center">
   <img src="images/confusion_matrix.png" width="400">
 </p>
+The model predicted 20 out of 23 failures.
 
-### 📈 ROC Curve
+### ROC Curve
 
 <p align="center">
   <img src="images/roc_curve.png" width="450">
 </p>
 
+
+## Feature Importance
+
+<p align="center"> 
+  <img src="images/feature_importance.png" width="500"> 
+</p>
+fuel_cell_temp had the strongest influence on predictions, followed by hydrogen_pressure and efficiency — matching failure patterns.
 ---
 
-### 📋 Classification Report
+### Classification Report
 
 | Metric      | Class 0 (Normal) | Class 1 (Failure) |
 |-------------|------------------|-------------------|
-| Precision   | 1.00             | 1.00              |
-| Recall      | 1.00             | 1.00              |
-| F1-Score    | 1.00             | 1.00              |
+| Precision   | 0.983             | 0.952              |
+| Recall      | 0.994             | 0.870              |
+| F1-Score    | 0.989             | 0.909              |
 
-> *Perfect results due to clearly separated simulated failure patterns.*
+> *Strong model performance, with high recall on failure events despite limited and imbalanced failure data.*
 
 ---
 
@@ -89,7 +97,7 @@ Used `train_test_split` with 20% test size and applied GridSearchCV to tune:
 
 ---
 
-## 💡 Key Skills Demonstrated
+## Key Skills Demonstrated
 
 - Time-series anomaly simulation  
 - Binary classification & recall optimization  
